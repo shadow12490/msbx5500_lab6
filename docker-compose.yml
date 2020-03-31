@@ -1,0 +1,19 @@
+version: '2'
+services:
+    web:
+        build: .
+        ports:
+        - "80:5000"
+        volumes:
+            - .:/app
+        command: flask run
+    psql:
+        image: postgres:latest
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_PASSWORD
+    mongo:
+        image: mongo:latest
+        ports:
+            - "27017:27017"
