@@ -1,0 +1,77 @@
+{% extends "layouts/default.html" %}
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications -->
+<!-- dang this is cool, that link has dropzones. later though -->
+{% block content %}
+<input type="file" id="file-input">
+<button id='btn-upload'>Upload, Do It Now.</button>
+
+<h2>Files</h2>
+<ul>
+  {% for file in files %}
+  <li>{{file.filename}}</li>
+  {% endfor %}
+</ul>
+
+<button id='get-files'>Get Files</button>
+
+<script type="text/javascript">
+  const inputElement = document.getElementById("file-input");
+  inputElement.addEventListener("change", handleFiles, false);
+  function handleFiles() {
+    const fileList = this.files; /* now you can work with the file list */
+  }
+
+  const uploadButton = document.getElementById('btn-upload')
+  uploadButton.addEventListener('click', sendFiles);
+  function sendFiles() {
+    let the_file = inputElement.files[0]
+    sendFile(the_file)
+  }
+
+  //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch "Uploading a File
+  function sendFile(file) {
+    const formData = new FormData();
+    formData.append('the_file', file)
+
+    fetch(`/uploads/${file.name}`, {
+      method: 'POST',
+      body: formData
+    })
+    .then( async (response) => {
+      if (!response.ok) {
+        console.error(`Failed to upload ${file.name}`)
+      } else {
+        console.log(`Uploaded ${file.name}`)
+        get_files() // later we will dynamically render the file list...
+      }
+    })
+    .catch((error)=>{
+      console.log('Something terrible happened:', error)
+    })
+  }
+
+  document.getElementById('get-files').addEventListener('click', get_files)
+
+  function get_files(){
+    fetch('/files.json', {
+      method: 'GET'
+    })
+    .then((response) => {
+      return response.json()
+    })
+    .then((result) => {
+      console.log('Success:', result)
+    })
+    .catch((error)=>{
+      console.log('Error:', error)
+    })
+  }
+
+
+
+
+</script>
+
+
+{% endblock %}
