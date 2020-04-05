@@ -1,9 +1,6 @@
-FROM ubuntu:16.04
+FROM python:3
 
 MAINTAINER Your Name "youremail@example.com"
-
-RUN apt update -y && \
-    apt install -y python-pip python-dev
 
 COPY ./requirements.txt /app/requirements.txt
 

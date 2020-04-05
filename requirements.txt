@@ -4,3 +4,4 @@ Flask-PyMongo~=2.3.0
 Flask-SQLAlchemy~=2.4.1
 Flask-Cors~=3.0.8
 psycopg2-binary~=2.8.4
+gunicorn~=19.10.0
