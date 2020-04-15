@@ -1,0 +1,25 @@
+2020-04-15T16:11:52.733Z Error: Missing required flag:
+2020-04-15T16:11:52.733Z  -a, --app APP  app to run command against
+2020-04-15T16:11:52.733Z See more help with --help
+2020-04-15T16:11:52.733Z     at validateFlags (/usr/local/lib/heroku/node_modules/@oclif/parser/lib/validate.js:53:27)
+2020-04-15T16:11:52.733Z     at Object.validate (/usr/local/lib/heroku/node_modules/@oclif/parser/lib/validate.js:58:5)
+2020-04-15T16:11:52.733Z     at Object.parse (/usr/local/lib/heroku/node_modules/@oclif/parser/lib/index.js:26:7)
+2020-04-15T16:11:52.733Z     at V5.parse (/usr/local/lib/heroku/node_modules/@oclif/plugin-legacy/node_modules/@oclif/command/lib/command.js:74:41)
+2020-04-15T16:11:52.733Z     at V5.run (/usr/local/lib/heroku/node_modules/@oclif/plugin-legacy/lib/index.js:90:52)
+2020-04-15T16:11:52.733Z     at V5._run (/usr/local/lib/heroku/node_modules/@oclif/plugin-legacy/node_modules/@oclif/command/lib/command.js:34:31)
+2020/04/15 16:12:49 Error: Expected response to be successful, got 422
+    at Request.handleFailure [as _handleFailure] (/usr/local/lib/heroku/node_modules/heroku-client/lib/request.js:255:11)
+    at Request.<anonymous> (/usr/local/lib/heroku/node_modules/heroku-cli-util/lib/command.js:56:12)
+    at /usr/local/lib/heroku/node_modules/heroku-client/lib/request.js:148:16
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+2020/04/15 16:12:49 {"id":"invalid_params","message":"Name must start with a letter, end with a letter or digit and can only contain lowercase letters, digits, and dashes."}
+2020/04/15 16:19:43 Error: Error opening web browser.
+Error: Exited with code 3
+
+Manually visit https://lab6-app.herokuapp.com/ in your browser.
+    at /usr/local/lib/heroku/node_modules/heroku-cli-util/lib/open.js:12:16
+    at ChildProcess.<anonymous> (/usr/local/lib/heroku/node_modules/opn/index.js:86:5)
+    at Object.onceWrapper (events.js:422:26)
+    at ChildProcess.emit (events.js:315:20)
+    at maybeClose (internal/child_process.js:1026:16)
+    at Process.ChildProcess._handle.onexit (internal/child_process.js:286:5)
